@@ -9,7 +9,7 @@ variable "project_name" {
   description = "The name of the project"
   type        = string
 
-  default     = "armageddon_summer_2026"
+  default = "armageddon_summer_2026"
 }
 
 variable "environment" {
@@ -34,7 +34,7 @@ variable "enable_bedrock" {
   default     = true # Set to true to enable Bedrock configuration by default
 }
 
-variable "bedrock_model_id"{
+variable "bedrock_model_id" {
   description = "Amazon bedrock model ID"
   type        = string
   default     = "amazon.nova-lite-v1:0"
@@ -43,35 +43,35 @@ variable "bedrock_model_id"{
 
 ###sns notifications
 
-variable "notification_email"{
-    description = "Email address for SNS notifications"
-    type        = string
-    default     = ""
+variable "notification_email" {
+  description = "Email address for SNS notifications"
+  type        = string
+  default     = ""
 }
 
 # Analyzer Settings
 # in this section, we define variables related to the log analysis settings
 
 #log minutes for analysis. this is for determining the time range of logs to be analyzed
-variable "lookback_minutes"{
-    description = "The number of minutes to look back for analysis"
-    type        = number
-    default     = 5
+variable "lookback_minutes" {
+  description = "The number of minutes to look back for analysis"
+  type        = number
+  default     = 5
 }
 
 # this section defines the maximum number of log events to retrieve for analysis
-variable "max_log_events"{
-    description = "The maximum number of log events to retrieve for analysis"
-    type        = number
-    default     = 1000
+variable "max_log_events" {
+  description = "The maximum number of log events to retrieve for analysis"
+  type        = number
+  default     = 1000
 }
 
 # Correlation Settings
 # in this section, we define variables related to the correlation of log events
-variable "correlation_window_minutes"{
-    description = "The time window in minutes for correlating log events"
-    type        = number
-    default     = 60
+variable "correlation_window_minutes" {
+  description = "The time window in minutes for correlating log events"
+  type        = number
+  default     = 60
 }
 
 variable "minimum_event_count" {
@@ -91,4 +91,8 @@ variable "report_retention_days" {
   description = "How long reports remain in S3"
   type        = number
   default     = 30
+  validation {
+    condition     = var.report_retention_days > 0
+    error_message = "report_retention_days must be greater than 0."
+  }
 }
