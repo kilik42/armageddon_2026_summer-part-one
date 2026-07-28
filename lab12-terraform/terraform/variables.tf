@@ -96,3 +96,10 @@ variable "report_retention_days" {
     error_message = "report_retention_days must be greater than 0."
   }
 }
+
+
+variable "log_retention_days" {
+  description = "Number of days to retain CloudWatch logs"
+  type        = number
+  default     = 30
+}

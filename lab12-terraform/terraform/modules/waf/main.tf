@@ -96,3 +96,6 @@ resource "aws_wafv2_web_acl" "main" {
 
   tags = local.common_tags
 }
+
+# IAM module for Lambda execution roles
+

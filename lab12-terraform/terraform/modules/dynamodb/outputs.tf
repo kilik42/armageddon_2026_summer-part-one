@@ -33,3 +33,16 @@ output "security_incidents_table_arn" {
   description = "ARN of the security incidents DynamoDB table"
   value       = aws_dynamodb_table.security_incidents.arn
 }
+
+
+# output "waf_events_table_arn" {
+#   value = aws_dynamodb_table.waf_events.arn
+# }
+
+# output "correlation_findings_table_arn" {
+#   value = aws_dynamodb_table.correlation_findings.arn
+# }
+
+# output "security_incidents_table_arn" {
+#   value = aws_dynamodb_table.security_incidents.arn
+# }

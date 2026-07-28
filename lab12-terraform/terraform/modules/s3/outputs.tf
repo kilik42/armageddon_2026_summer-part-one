@@ -17,3 +17,8 @@ output "executive_reports_prefix" {
   description = "S3 prefix used for executive reports"
   value       = "executive-reports/"
 }
+
+output "bucket_arn" {
+  value = aws_s3_bucket.executive_reports.arn
+}
+

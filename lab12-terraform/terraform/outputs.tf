@@ -36,6 +36,8 @@ output "security_alerts_topic_arn" {
   value       = module.sns.topic_arn
 }
 
+
+# waf web acl outputs
 output "waf_web_acl_arn" {
   description = "ARN of the WAF Web ACL"
   value       = module.waf.web_acl_arn
@@ -45,3 +47,29 @@ output "waf_web_acl_name" {
   description = "Name of the WAF Web ACL"
   value       = module.waf.web_acl_name
 }
+
+
+
+
+###### IAM Role Outputs for Lambda Functions
+output "analyzer_lambda_role_arn" {
+  description = "Execution role ARN for the analyzer Lambda"
+  value       = module.iam.analyzer_role_arn
+}
+
+output "correlation_lambda_role_arn" {
+  description = "Execution role ARN for the correlation Lambda"
+  value       = module.iam.correlation_role_arn
+}
+
+output "soar_lambda_role_arn" {
+  description = "Execution role ARN for the SOAR Lambda"
+  value       = module.iam.soar_role_arn
+}
+
+output "dashboard_lambda_role_arn" {
+  description = "Execution role ARN for the executive dashboard Lambda"
+  value       = module.iam.dashboard_role_arn
+}
+
+
