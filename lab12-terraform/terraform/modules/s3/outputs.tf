@@ -22,3 +22,7 @@ output "bucket_arn" {
   value = aws_s3_bucket.executive_reports.arn
 }
 
+output "bucket_name" {
+  description = "Name of the executive reports bucket"
+  value       = aws_s3_bucket.executive_reports.bucket
+}

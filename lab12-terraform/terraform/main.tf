@@ -51,9 +51,9 @@ module "iam" {
   environment  = var.environment
   aws_region   = var.aws_region
 
- # this part is for passing resource ARNs to the IAM module
-  waf_log_group_arn              = module.logging.waf_log_group_arn
-  waf_events_table_arn           = module.dynamodb.waf_events_table_arn
+  # this part is for passing resource ARNs to the IAM module
+  waf_log_group_arn    = module.logging.waf_log_group_arn
+  waf_events_table_arn = module.dynamodb.waf_events_table_arn
 
 
   # this part is for passing DynamoDB table ARNs to the IAM module
@@ -73,21 +73,22 @@ module "lambdas" {
   environment  = var.environment
   aws_region   = var.aws_region
 
-  lambda_source_dir = "${path.root}/lambda_src"
+  lambda_source_dir = "${path.root}/../src"
 
   analyzer_role_arn    = module.iam.analyzer_role_arn
   correlation_role_arn = module.iam.correlation_role_arn
   soar_role_arn        = module.iam.soar_role_arn
   dashboard_role_arn   = module.iam.dashboard_role_arn
 
-  waf_log_group_name             = module.logging.waf_log_group_name
-  waf_events_table_name          = module.dynamodb.waf_events_table_name
+  waf_log_group_name              = module.logging.waf_log_group_name
+  waf_events_table_name           = module.dynamodb.waf_events_table_name
   correlation_findings_table_name = module.dynamodb.correlation_findings_table_name
   security_incidents_table_name   = module.dynamodb.security_incidents_table_name
 
-  sns_topic_arn      = module.sns.topic_arn
+  sns_topic_arn       = module.sns.topic_arn
   reports_bucket_name = module.s3.bucket_name
 
   enable_bedrock   = var.enable_bedrock
   bedrock_model_id = var.bedrock_model_id
 }
+

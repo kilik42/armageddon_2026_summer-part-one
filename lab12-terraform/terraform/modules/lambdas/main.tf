@@ -57,12 +57,12 @@ resource "aws_lambda_function" "analyzer" {
 
   environment {
     variables = {
-      AWS_REGION_NAME      = var.aws_region
-      WAF_LOG_GROUP_NAME   = var.waf_log_group_name
-      WAF_EVENTS_TABLE     = var.waf_events_table_name
-      ENABLE_BEDROCK       = tostring(var.enable_bedrock)
-      BEDROCK_MODEL_ID      = var.bedrock_model_id
-      LOG_LEVEL             = var.log_level
+      AWS_REGION_NAME    = var.aws_region
+      WAF_LOG_GROUP_NAME = var.waf_log_group_name
+      WAF_EVENTS_TABLE   = var.waf_events_table_name
+      ENABLE_BEDROCK     = tostring(var.enable_bedrock)
+      BEDROCK_MODEL_ID   = var.bedrock_model_id
+      LOG_LEVEL          = var.log_level
     }
   }
 
@@ -95,7 +95,7 @@ resource "aws_lambda_function" "correlation" {
       AWS_REGION_NAME            = var.aws_region
       WAF_EVENTS_TABLE           = var.waf_events_table_name
       CORRELATION_FINDINGS_TABLE = var.correlation_findings_table_name
-      LOG_LEVEL                   = var.log_level
+      LOG_LEVEL                  = var.log_level
     }
   }
 
@@ -130,8 +130,8 @@ resource "aws_lambda_function" "soar" {
       SECURITY_INCIDENTS_TABLE   = var.security_incidents_table_name
       SNS_TOPIC_ARN              = var.sns_topic_arn
       ENABLE_BEDROCK             = tostring(var.enable_bedrock)
-      BEDROCK_MODEL_ID            = var.bedrock_model_id
-      LOG_LEVEL                   = var.log_level
+      BEDROCK_MODEL_ID           = var.bedrock_model_id
+      LOG_LEVEL                  = var.log_level
     }
   }
 
@@ -166,8 +166,8 @@ resource "aws_lambda_function" "dashboard" {
       SECURITY_INCIDENTS_TABLE   = var.security_incidents_table_name
       REPORTS_BUCKET_NAME        = var.reports_bucket_name
       ENABLE_BEDROCK             = tostring(var.enable_bedrock)
-      BEDROCK_MODEL_ID            = var.bedrock_model_id
-      LOG_LEVEL                   = var.log_level
+      BEDROCK_MODEL_ID           = var.bedrock_model_id
+      LOG_LEVEL                  = var.log_level
     }
   }
 
